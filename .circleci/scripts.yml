@@ -14,7 +14,7 @@ workflows:
   on-commit:
     jobs:
       - shellcheck/check:
-          dir: ./src/scripts
+          dir: .
           exclude: SC2148
           filters:
             branches:
