@@ -20,9 +20,23 @@ This project has primarily been developed on Docker. Please have a suitable vers
 
 Run the following Docker build and run commands to execute this codebase.
 
+### Ephemeral
+
 ```shell
 DOCKER_BUILDKIT=1 docker build --platform="linux/[amd64|arm64]" . -t directory-anarchy:latest
+```
+
+```shell
 docker run -it -e DEBUG=true -n directory-anarchy-game directory-anarchy:latest
+```
+
+### Persisted
+
+If you'd like to persist the game state, launch this container with a volume mapped to a local directory on your machine or mount a Docker volume.
+
+```shell
+mkdir ~/.anarchy_game_state
+docker run -it -e DEBUG=true -v "$HOME"/.anarchy_game_state:/opt/anarchy -n directory-anarchy-game directory-anarchy:latest
 ```
 
 ### pre-commit
