@@ -24,7 +24,7 @@ RUN apt update \
 
 WORKDIR /opt/anarchy
 
-COPY --chown=anarchist:anarchists scripts/cmd.sh .
+COPY --chown=anarchist:anarchists --chmod=755 scripts/cmd.sh .
 
 USER anarchist
 
